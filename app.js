@@ -1,9 +1,11 @@
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
+app.use(express.static('public'));
 
 const items = [];
 
@@ -47,10 +49,30 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 /**
  * @swagger
- * /item:
+ * /items:
+ *   get:
+ *     summary: Returns the list of all items
+ *     tags: [Items]
+ *     responses:
+ *       200:
+ *         description: The list of the items
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Item'
+ */
+app.get('/items', (req, res) => {
+  res.json(items);
+});
+
+/**
+ * @swagger
+ * /items:
  *   post:
  *     summary: Create a new item
- *     tags: [Item]
+ *     tags: [Items]
  *     requestBody:
  *       required: true
  *       content:
@@ -61,7 +83,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *       201:
  *         description: The item was successfully created
  */
-app.post('/item', (req, res) => {
+app.post('/items', (req, res) => {
   const item = {
     name: req.body.name,
     price: req.body.price,
@@ -72,10 +94,10 @@ app.post('/item', (req, res) => {
 
 /**
  * @swagger
- * /item/{name}:
+ * /items/{name}:
  *   get:
  *     summary: Get an item by name
- *     tags: [Item]
+ *     tags: [Items]
  *     parameters:
  *       - in: path
  *         name: name
@@ -93,7 +115,7 @@ app.post('/item', (req, res) => {
  *       404:
  *         description: The item was not found
  */
-app.get('/item/:name', (req, res) => {
+app.get('/items/:name', (req, res) => {
   const item = items.find(i => i.name === req.params.name);
   if (item) {
     res.json(item);
@@ -104,10 +126,10 @@ app.get('/item/:name', (req, res) => {
 
 /**
  * @swagger
- * /item/{name}:
+ * /items/{name}:
  *   put:
  *     summary: Update an item by name
- *     tags: [Item]
+ *     tags: [Items]
  *     parameters:
  *       - in: path
  *         name: name
@@ -127,7 +149,7 @@ app.get('/item/:name', (req, res) => {
  *       201:
  *         description: The item was successfully created
  */
-app.put('/item/:name', (req, res) => {
+app.put('/items/:name', (req, res) => {
   const item = items.find(i => i.name === req.params.name);
   if (item) {
     item.price = req.body.price;
@@ -144,10 +166,10 @@ app.put('/item/:name', (req, res) => {
 
 /**
  * @swagger
- * /item/{name}:
+ * /items/{name}:
  *   delete:
  *     summary: Remove an item by name
- *     tags: [Item]
+ *     tags: [Items]
  *     parameters:
  *       - in: path
  *         name: name
@@ -159,7 +181,7 @@ app.put('/item/:name', (req, res) => {
  *       200:
  *         description: The item was successfully deleted
  */
-app.delete('/item/:name', (req, res) => {
+app.delete('/items/:name', (req, res) => {
   const index = items.findIndex(i => i.name === req.params.name);
   if (index !== -1) {
     items.splice(index, 1);

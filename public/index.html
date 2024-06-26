@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Items API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Items API</h1>
+  <div>
+    <h2>Create Item</h2>
+    <input type="text" id="createName" placeholder="Name">
+    <input type="number" id="createPrice" placeholder="Price">
+    <button onclick="createItem()">Create</button>
+  </div>
+  <div>
+    <h2>Get Item</h2>
+    <input type="text" id="getName" placeholder="Name">
+    <button onclick="getItem()">Get</button>
+    <pre id="getItemResult"></pre>
+  </div>
+  <div>
+    <h2>Update Item</h2>
+    <input type="text" id="updateName" placeholder="Name">
+    <input type="number" id="updatePrice" placeholder="New Price">
+    <button onclick="updateItem()">Update</button>
+  </div>
+  <div>
+    <h2>Delete Item</h2>
+    <input type="text" id="deleteName" placeholder="Name">
+    <button onclick="deleteItem()">Delete</button>
+  </div>
+  <div>
+    <h2>All Items</h2>
+    <button onclick="getAllItems()">Get All Items</button>
+    <pre id="allItemsResult"></pre>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

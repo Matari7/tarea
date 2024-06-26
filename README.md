@@ -1,5 +1,5 @@
 # tarea
- 
+ Colaboradores: Ariel Campoverde, Cristian Caiza
  COMO INSTALAR
 Para instalar el programa se necesita instalar las dependencias con 
 npm init -y
@@ -7,6 +7,7 @@ Despues se debe instalar el swagger con
 npm install express swagger-jsdoc swagger-ui-express
 
  COMO CORRE EL PROGRAMA
+ con el node app.js se corre el programa
 Se inicializa en el localhost:3000 con el puerto 3000 y se puede visualizar el index.html
 
  COMO FUNCIONA

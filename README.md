@@ -6,17 +6,17 @@
 
 Para instalar el programa se necesita instalar las dependencias con:
 
-```bash
-npm init -y
+```bash```
+npm init -y 
 
 Despues se debe instalar el swagger con
 npm install express swagger-jsdoc swagger-ui-express
 
- COMO CORRE EL PROGRAMA
+## COMO CORRE EL PROGRAMA
  con el node app.js se corre el programa
 Se inicializa en el localhost:3000 con el puerto 3000 y se puede visualizar el index.html
 
- COMO FUNCIONA
+## COMO FUNCIONA
 Se trata de una REST API la cual nos permite crear un item con "Create Item" con el nombre del item y el precio y pulsar en el boton Create para poder crear
 
 Despues en el apartado de "Get Item" Se ingresa el item y en Get, se muestra en formato json

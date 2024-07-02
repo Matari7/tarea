@@ -1,8 +1,14 @@
-# tarea
- Colaboradores: Ariel Campoverde, Cristian Caiza
- COMO INSTALAR
-Para instalar el programa se necesita instalar las dependencias con 
+# Tarea
+
+**Colaboradores**: Ariel Campoverde, Cristian Caiza
+
+## Como Instalar
+
+Para instalar el programa se necesita instalar las dependencias con:
+
+```bash
 npm init -y
+
 Despues se debe instalar el swagger con
 npm install express swagger-jsdoc swagger-ui-express
 
